@@ -129,8 +129,9 @@ public class WeakTimeoutQueue(
     }
 
     private fun process(now: Long, head: LockFreeLinkedListHead, cancelled: Boolean) {
+        val list: LockFreeLinkedListNode = head
         while (true) {
-            val p = head.next as? Cancellable ?: break
+            val p = list.next as? Cancellable ?: break
             if (!cancelled && p.deadline > now) break
 
             if (p.isActive && p.remove()) {

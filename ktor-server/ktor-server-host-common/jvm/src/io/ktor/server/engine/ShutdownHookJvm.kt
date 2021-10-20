@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.*
  * is already stopped then there will be no hook and no [stop] function invocation possible.
  * So [stop] block will be called once or never.
  */
-public fun ApplicationEngine.addShutdownHook(stop: () -> Unit) {
+public actual fun ApplicationEngine.addShutdownHook(stop: () -> Unit) {
     val hook = ShutdownHook(stop)
     environment.monitor.subscribe(ApplicationStarting) {
         environment.monitor.subscribe(ApplicationStopping) {

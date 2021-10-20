@@ -34,7 +34,7 @@ public fun CoroutineScope.startServerConnectionPipeline(
 ): Job = launch(HttpPipelineCoroutine) {
     @OptIn(ObsoleteCoroutinesApi::class, ExperimentalCoroutinesApi::class)
     val actorChannel = Channel<ByteReadChannel>(capacity = 3)
-    val outputsActor = launch(
+    launch(
         context = HttpPipelineWriterCoroutine,
         start = CoroutineStart.UNDISPATCHED
     ) {
@@ -188,10 +188,10 @@ private suspend fun pipelineWriterLoop(
     timeout: WeakTimeoutQueue,
     connection: ServerIncomingConnection
 ) {
-    val receiveChildOrNull =
-        suspendLambda<CoroutineScope, ByteReadChannel?> {
-            channel.receiveCatching().getOrNull()
-        }
+    val receiveChildOrNull = suspendLambda<CoroutineScope, ByteReadChannel?> {
+        channel.receiveCatching().getOrNull()
+    }
+
     while (true) {
         val child = timeout.withTimeout(receiveChildOrNull) ?: break
         try {

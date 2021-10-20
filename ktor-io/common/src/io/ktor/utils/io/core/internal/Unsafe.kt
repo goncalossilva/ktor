@@ -13,7 +13,6 @@ import kotlin.native.concurrent.*
  */
 @Suppress("DEPRECATION")
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR)
-@Experimental(level = Experimental.Level.ERROR)
 public annotation class DangerousInternalIoApi
 
 internal fun ByteReadPacket.unsafeAppend(builder: BytePacketBuilder): Int {
