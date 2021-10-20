@@ -6,6 +6,8 @@ package io.ktor.http.cio.internals
 
 import io.ktor.util.*
 import io.ktor.util.date.*
+import io.ktor.util.internal.LockFreeLinkedListHead
+import io.ktor.util.internal.LockFreeLinkedListNode
 import kotlinx.atomicfu.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.internal.*
@@ -128,10 +130,9 @@ public class WeakTimeoutQueue(
         }
     }
 
-    private fun process(now: Long, head: LockFreeLinkedListHead, cancelled: Boolean) {
-        val list: LockFreeLinkedListNode = head
+    private fun process(now: Long, head: io.ktor.util.internal.LockFreeLinkedListHead, cancelled: Boolean) {
         while (true) {
-            val p = list.next as? Cancellable ?: break
+            val p = head.next as? Cancellable ?: break
             if (!cancelled && p.deadline > now) break
 
             if (p.isActive && p.remove()) {

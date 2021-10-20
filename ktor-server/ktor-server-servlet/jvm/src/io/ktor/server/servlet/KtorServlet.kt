@@ -69,8 +69,6 @@ public abstract class KtorServlet : HttpServlet(), CoroutineScope {
      */
     override fun destroy() {
         coroutineContext.cancel()
-        // Note: container will not call service again, so asyncDispatcher cannot get initialized if it was not yet
-        if (asyncDispatchers.isInitialized()) asyncDispatchers.value.destroy()
     }
 
     /**
