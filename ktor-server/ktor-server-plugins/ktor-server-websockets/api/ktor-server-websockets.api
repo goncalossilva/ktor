@@ -106,3 +106,18 @@ public final class io/ktor/server/websocket/WebSockets$WebSocketOptions {
 	public final fun setTimeoutMillis (J)V
 }
 
+public class io/ktor/server/websocket/WebsocketContentConvertException : java/lang/Exception {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class io/ktor/server/websocket/WebsocketConverterNotFoundException : io/ktor/server/websocket/WebsocketContentConvertException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class io/ktor/server/websocket/WebsocketDeserializeException : io/ktor/server/websocket/WebsocketContentConvertException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
