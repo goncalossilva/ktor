@@ -1,3 +1,7 @@
+public abstract interface class io/ktor/shared/serializaion/jackson/BaseConverter {
+	public abstract fun serialize (Lio/ktor/http/ContentType;Ljava/nio/charset/Charset;Lio/ktor/util/reflect/TypeInfo;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public final class io/ktor/shared/serializaion/jackson/JacksonConverter : io/ktor/shared/serialization/ContentConverter {
 	public fun <init> ()V
 	public fun <init> (Lcom/fasterxml/jackson/databind/ObjectMapper;)V
@@ -9,5 +13,18 @@ public final class io/ktor/shared/serializaion/jackson/JacksonConverter : io/kto
 public final class io/ktor/shared/serializaion/jackson/JacksonConverterKt {
 	public static final fun jackson (Lio/ktor/shared/serialization/Configuration;Lio/ktor/http/ContentType;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun jackson$default (Lio/ktor/shared/serialization/Configuration;Lio/ktor/http/ContentType;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+}
+
+public final class io/ktor/shared/serializaion/jackson/SerializedData {
+	public fun <init> (Lio/ktor/utils/io/ByteReadChannel;J)V
+	public final fun component1 ()Lio/ktor/utils/io/ByteReadChannel;
+	public final fun component2 ()J
+	public final fun copy (Lio/ktor/utils/io/ByteReadChannel;J)Lio/ktor/shared/serializaion/jackson/SerializedData;
+	public static synthetic fun copy$default (Lio/ktor/shared/serializaion/jackson/SerializedData;Lio/ktor/utils/io/ByteReadChannel;JILjava/lang/Object;)Lio/ktor/shared/serializaion/jackson/SerializedData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Lio/ktor/utils/io/ByteReadChannel;
+	public final fun getDataLength ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
