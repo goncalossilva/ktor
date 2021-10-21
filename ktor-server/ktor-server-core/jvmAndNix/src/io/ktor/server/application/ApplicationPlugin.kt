@@ -83,14 +83,13 @@ public fun <P : Pipeline<*, ApplicationCall>, B : Any, F : Any> P.install(
     configure: B.() -> Unit = {}
 ): F {
     val registry = pluginRegistry
-    val installedPlugin = registry.getOrNull(plugin.key)
-    when (installedPlugin) {
+    return when (val installedPlugin = registry.getOrNull(plugin.key)) {
         null -> {
             try {
                 val installed = plugin.install(this, configure)
                 registry.put(plugin.key, installed)
                 // environment.log.trace("`${plugin.name}` plugin was installed successfully.")
-                return installed
+                installed
             } catch (t: Throwable) {
                 // environment.log.error("`${plugin.name}` plugin failed to install.", t)
                 throw t
@@ -98,7 +97,7 @@ public fun <P : Pipeline<*, ApplicationCall>, B : Any, F : Any> P.install(
         }
         plugin -> {
             // environment.log.warning("`${plugin.name}` plugin is already installed")
-            return installedPlugin
+            installedPlugin
         }
         else -> {
             throw DuplicateApplicationPluginException(
