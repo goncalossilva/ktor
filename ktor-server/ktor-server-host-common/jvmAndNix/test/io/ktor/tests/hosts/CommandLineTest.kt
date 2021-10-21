@@ -36,23 +36,6 @@ class CommandLineTest {
         assertEquals(13698, commandLineEnvironment(arrayOf("-P:ktor.deployment.port=13698")).connectors.single().port)
     }
 
-    @Test
-    fun testPropertyConfig() {
-        System.setProperty("ktor.deployment.port", "1333")
-        ConfigFactory.invalidateCaches()
-        assertEquals(1333, commandLineEnvironment(emptyArray()).connectors.single().port)
-        System.clearProperty("ktor.deployment.port")
-        ConfigFactory.invalidateCaches()
-    }
-
-    @Test
-    fun testPropertyConfigOverride() {
-        System.setProperty("ktor.deployment.port", "1333")
-        ConfigFactory.invalidateCaches()
-        assertEquals(13698, commandLineEnvironment(arrayOf("-P:ktor.deployment.port=13698")).connectors.single().port)
-        System.clearProperty("ktor.deployment.port")
-        ConfigFactory.invalidateCaches()
-    }
 
     @Test
     fun testChangeHost() {

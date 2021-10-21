@@ -6,6 +6,7 @@ public final class io/ktor/server/plugins/StatusPages {
 public final class io/ktor/server/plugins/StatusPages$Configuration {
 	public fun <init> ()V
 	public final fun exception (Ljava/lang/Class;Lkotlin/jvm/functions/Function3;)V
+	public final synthetic fun exception (Lkotlin/jvm/functions/Function3;)V
 	public final fun getExceptions ()Ljava/util/Map;
 	public final fun getStatuses ()Ljava/util/Map;
 	public final fun status ([Lio/ktor/http/HttpStatusCode;Lkotlin/jvm/functions/Function3;)V

@@ -6,6 +6,7 @@ public final class io/ktor/server/plugins/Compression {
 public final class io/ktor/server/plugins/Compression$Configuration : io/ktor/server/plugins/ConditionsHolderBuilder {
 	public fun <init> ()V
 	public final fun build ()Lio/ktor/server/plugins/CompressionOptions;
+	public final fun buildOptions$ktor_server_compression ()Lio/ktor/server/plugins/CompressionOptions;
 	public final fun default ()V
 	public final fun encoder (Ljava/lang/String;Lio/ktor/server/plugins/CompressionEncoder;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun encoder$default (Lio/ktor/server/plugins/Compression$Configuration;Ljava/lang/String;Lio/ktor/server/plugins/CompressionEncoder;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
@@ -32,7 +33,9 @@ public final class io/ktor/server/plugins/CompressionEncoder$DefaultImpls {
 }
 
 public final class io/ktor/server/plugins/CompressionEncoderBuilder : io/ktor/server/plugins/ConditionsHolderBuilder {
+	public fun <init> (Ljava/lang/String;Lio/ktor/server/plugins/CompressionEncoder;)V
 	public final fun build ()Lio/ktor/server/plugins/CompressionEncoderConfig;
+	public final fun buildConfig$ktor_server_compression ()Lio/ktor/server/plugins/CompressionEncoderConfig;
 	public fun getConditions ()Ljava/util/ArrayList;
 	public synthetic fun getConditions ()Ljava/util/List;
 	public final fun getEncoder ()Lio/ktor/server/plugins/CompressionEncoder;
@@ -59,6 +62,7 @@ public final class io/ktor/server/plugins/CompressionEncoderConfig {
 }
 
 public final class io/ktor/server/plugins/CompressionKt {
+	public static final field DEFAULT_MINIMAL_COMPRESSION_SIZE J
 	public static final fun condition (Lio/ktor/server/plugins/ConditionsHolderBuilder;Lkotlin/jvm/functions/Function2;)V
 	public static final fun deflate (Lio/ktor/server/plugins/Compression$Configuration;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun deflate$default (Lio/ktor/server/plugins/Compression$Configuration;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V

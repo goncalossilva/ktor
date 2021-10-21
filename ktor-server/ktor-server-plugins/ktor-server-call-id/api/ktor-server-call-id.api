@@ -6,17 +6,23 @@ public final class io/ktor/server/plugins/CallId {
 public final class io/ktor/server/plugins/CallId$Configuration {
 	public fun <init> ()V
 	public final fun generate (Lkotlin/jvm/functions/Function1;)V
+	public final fun getGenerators$ktor_server_call_id ()Ljava/util/ArrayList;
+	public final fun getResponseInterceptors$ktor_server_call_id ()Ljava/util/ArrayList;
+	public final fun getRetrievers$ktor_server_call_id ()Ljava/util/ArrayList;
+	public final fun getVerifier$ktor_server_call_id ()Lkotlin/jvm/functions/Function1;
 	public final fun header (Ljava/lang/String;)V
 	public final fun reply (Lkotlin/jvm/functions/Function2;)V
 	public final fun replyToHeader (Ljava/lang/String;)V
 	public final fun retrieve (Lkotlin/jvm/functions/Function1;)V
 	public final fun retrieveFromHeader (Ljava/lang/String;)V
+	public final fun setVerifier$ktor_server_call_id (Lkotlin/jvm/functions/Function1;)V
 	public final fun verify (Ljava/lang/String;Z)V
 	public final fun verify (Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun verify$default (Lio/ktor/server/plugins/CallId$Configuration;Ljava/lang/String;ZILjava/lang/Object;)V
 }
 
 public final class io/ktor/server/plugins/CallId$Plugin : io/ktor/server/application/ApplicationPlugin {
+	public final fun getCallIdKey$ktor_server_call_id ()Lio/ktor/util/AttributeKey;
 	public fun getKey ()Lio/ktor/util/AttributeKey;
 	public final fun getPhase ()Lio/ktor/util/pipeline/PipelinePhase;
 	public fun install (Lio/ktor/server/application/ApplicationCallPipeline;Lkotlin/jvm/functions/Function1;)Lio/ktor/server/plugins/CallId;

@@ -88,6 +88,9 @@ fun Project.configureTargets() {
                 }
 
                 val jvmAndNixTest by creating {
+                    dependencies {
+                        api("org.jetbrains.kotlin:kotlin-test-common:$kotlin_version")
+                    }
                 }
             }
             if (hasJvm) {

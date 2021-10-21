@@ -9,3 +9,8 @@ public final class io/ktor/shared/serialization/kotlinx/KotlinxSerializationConv
 	public static final fun serialization (Lio/ktor/shared/serialization/Configuration;Lio/ktor/http/ContentType;Lkotlinx/serialization/StringFormat;)V
 }
 
+public final class io/ktor/shared/serialization/kotlinx/SerializerLookupKt {
+	public static final fun guessSerializer (Ljava/lang/Object;Lkotlinx/serialization/modules/SerializersModule;)Lkotlinx/serialization/KSerializer;
+	public static final fun serializerFromTypeInfo (Lio/ktor/util/reflect/TypeInfo;Lkotlinx/serialization/modules/SerializersModule;)Lkotlinx/serialization/KSerializer;
+}
+

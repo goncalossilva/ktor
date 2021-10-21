@@ -2,6 +2,7 @@ public final class io/ktor/server/plugins/CORS {
 	public static final field CORS_DEFAULT_MAX_AGE J
 	public static final field Plugin Lio/ktor/server/plugins/CORS$Plugin;
 	public fun <init> (Lio/ktor/server/plugins/CORS$Configuration;)V
+	public final fun checkOrigin$ktor_server_cors (Ljava/lang/String;Lio/ktor/http/RequestConnectionPoint;)Lio/ktor/server/plugins/OriginCheckResult;
 	public final fun getAllHeaders ()Ljava/util/Set;
 	public final fun getAllHeadersSet ()Ljava/util/Set;
 	public final fun getAllowCredentials ()Z
@@ -55,5 +56,13 @@ public final class io/ktor/server/plugins/CORS$Plugin : io/ktor/server/applicati
 public final class io/ktor/server/plugins/KotlinTimeJvmKt {
 	public static final fun getMaxAgeDuration (Lio/ktor/server/plugins/CORS$Configuration;)J
 	public static final fun setMaxAgeDuration-HG0u8IE (Lio/ktor/server/plugins/CORS$Configuration;J)V
+}
+
+public final class io/ktor/server/plugins/OriginCheckResult : java/lang/Enum {
+	public static final field Failed Lio/ktor/server/plugins/OriginCheckResult;
+	public static final field OK Lio/ktor/server/plugins/OriginCheckResult;
+	public static final field SkipCORS Lio/ktor/server/plugins/OriginCheckResult;
+	public static fun valueOf (Ljava/lang/String;)Lio/ktor/server/plugins/OriginCheckResult;
+	public static fun values ()[Lio/ktor/server/plugins/OriginCheckResult;
 }
 

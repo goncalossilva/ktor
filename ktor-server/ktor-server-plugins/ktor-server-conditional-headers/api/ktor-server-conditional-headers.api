@@ -1,11 +1,13 @@
 public final class io/ktor/server/plugins/ConditionalHeaders {
 	public static final field Plugin Lio/ktor/server/plugins/ConditionalHeaders$Plugin;
 	public fun <init> (Ljava/util/List;)V
+	public final fun interceptor$ktor_server_conditional_headers (Lio/ktor/util/pipeline/PipelineContext;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun versionsFor (Lio/ktor/http/content/OutgoingContent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class io/ktor/server/plugins/ConditionalHeaders$Configuration {
 	public fun <init> ()V
+	public final fun getVersionProviders$ktor_server_conditional_headers ()Ljava/util/List;
 	public final fun version (Lkotlin/jvm/functions/Function2;)V
 }
 

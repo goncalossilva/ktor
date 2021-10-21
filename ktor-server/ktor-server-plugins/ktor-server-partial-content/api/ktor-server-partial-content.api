@@ -1,3 +1,8 @@
+public final class io/ktor/server/plugins/MultipleRangeWriterKt {
+	public static final fun calculateMultipleRangesBodyLength (Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)J
+	public static final fun writeMultipleRangesImpl (Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Lio/ktor/utils/io/ByteReadChannel;
+}
+
 public final class io/ktor/server/plugins/PartialContent {
 	public static final field Plugin Lio/ktor/server/plugins/PartialContent$Plugin;
 	public fun <init> (I)V
@@ -13,5 +18,8 @@ public final class io/ktor/server/plugins/PartialContent$Plugin : io/ktor/server
 	public fun getKey ()Lio/ktor/util/AttributeKey;
 	public fun install (Lio/ktor/server/application/ApplicationCallPipeline;Lkotlin/jvm/functions/Function1;)Lio/ktor/server/plugins/PartialContent;
 	public synthetic fun install (Lio/ktor/util/pipeline/Pipeline;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+}
+
+public final class io/ktor/server/plugins/PartialContentKt {
 }
 

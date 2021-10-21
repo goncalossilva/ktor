@@ -1,3 +1,9 @@
+public final class io/ktor/shared/serializaion/gson/ExcludedTypeGsonException : java/lang/Exception, kotlinx/coroutines/CopyableThrowable {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun createCopy ()Lio/ktor/shared/serializaion/gson/ExcludedTypeGsonException;
+	public synthetic fun createCopy ()Ljava/lang/Throwable;
+}
+
 public final class io/ktor/shared/serializaion/gson/GsonConverter : io/ktor/shared/serialization/ContentConverter {
 	public fun <init> ()V
 	public fun <init> (Lcom/google/gson/Gson;)V

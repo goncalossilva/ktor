@@ -15,6 +15,7 @@ public final class io/ktor/server/plugins/CachedTransformationResult$Success : i
 
 public final class io/ktor/server/plugins/DoubleReceive {
 	public static final field Plugin Lio/ktor/server/plugins/DoubleReceive$Plugin;
+	public fun <init> (Lio/ktor/server/plugins/DoubleReceive$Configuration;)V
 }
 
 public final class io/ktor/server/plugins/DoubleReceive$Configuration {
@@ -29,6 +30,10 @@ public final class io/ktor/server/plugins/DoubleReceive$Plugin : io/ktor/server/
 	public synthetic fun install (Lio/ktor/util/pipeline/Pipeline;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 }
 
+public final class io/ktor/server/plugins/DoubleReceiveKt {
+}
+
 public final class io/ktor/server/plugins/RequestReceiveAlreadyFailedException : java/lang/Exception {
+	public fun <init> (Ljava/lang/Throwable;)V
 }
 

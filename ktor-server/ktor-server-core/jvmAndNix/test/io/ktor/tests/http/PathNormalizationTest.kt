@@ -5,7 +5,6 @@
 package io.ktor.tests.http
 
 import io.ktor.server.util.*
-import java.util.*
 import kotlin.test.*
 
 class PathNormalizationTest {
@@ -118,12 +117,12 @@ class PathNormalizationTest {
             "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"
         )
         val allNames = names +
-            names.map { it.lowercase(Locale.getDefault()) } +
+            names.map { it.lowercase() } +
             names.map { name ->
-                name.lowercase(Locale.getDefault())
+                name.lowercase()
                     .replaceFirstChar { char ->
                         if (char.isLowerCase()) {
-                            char.titlecase(Locale.getDefault())
+                            char.titlecase()
                         } else {
                             char.toString()
                         }

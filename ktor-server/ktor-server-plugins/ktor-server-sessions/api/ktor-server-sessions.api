@@ -1,3 +1,25 @@
+public final class io/ktor/server/sessions/BaseCache : io/ktor/server/sessions/Cache {
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public final fun getCalc ()Lkotlin/jvm/functions/Function2;
+	public fun getOrCompute (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun invalidate (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun invalidate (Ljava/lang/Object;Ljava/lang/Object;)Z
+	public fun invalidateAll ()V
+	public fun peek (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/ktor/server/sessions/BaseTimeoutCache : io/ktor/server/sessions/Cache {
+	public fun <init> (JZLio/ktor/server/sessions/Cache;)V
+	public final fun getDelegate ()Lio/ktor/server/sessions/Cache;
+	public fun getOrCompute (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getTimeoutValue ()J
+	public final fun getTouchOnGet ()Z
+	public fun invalidate (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun invalidate (Ljava/lang/Object;Ljava/lang/Object;)Z
+	public fun invalidateAll ()V
+	public fun peek (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
 public abstract interface class io/ktor/server/sessions/Cache {
 	public abstract fun getOrCompute (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun invalidate (Ljava/lang/Object;)Ljava/lang/Object;
@@ -6,12 +28,26 @@ public abstract interface class io/ktor/server/sessions/Cache {
 	public abstract fun peek (Ljava/lang/Object;)Ljava/lang/Object;
 }
 
+public abstract interface class io/ktor/server/sessions/CacheReference {
+	public abstract fun getKey ()Ljava/lang/Object;
+}
+
+public final class io/ktor/server/sessions/CacheSoftReference : java/lang/ref/SoftReference, io/ktor/server/sessions/CacheReference {
+	public fun <init> (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+	public fun getKey ()Ljava/lang/Object;
+}
+
 public final class io/ktor/server/sessions/CacheStorage : io/ktor/server/sessions/SessionStorage {
 	public fun <init> (Lio/ktor/server/sessions/SessionStorage;J)V
 	public final fun getDelegate ()Lio/ktor/server/sessions/SessionStorage;
 	public fun invalidate (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun read (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun write (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/ktor/server/sessions/CacheWeakReference : java/lang/ref/WeakReference, io/ktor/server/sessions/CacheReference {
+	public fun <init> (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+	public fun getKey ()Ljava/lang/Object;
 }
 
 public final class io/ktor/server/sessions/CookieConfiguration {
@@ -57,6 +93,14 @@ public abstract interface class io/ktor/server/sessions/CurrentSession {
 	public abstract fun set (Ljava/lang/String;Ljava/lang/Object;)V
 }
 
+public final class io/ktor/server/sessions/DirectoryStorage : io/ktor/server/sessions/SessionStorage, java/io/Closeable {
+	public fun <init> (Ljava/io/File;)V
+	public fun close ()V
+	public fun invalidate (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun read (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun write (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public final class io/ktor/server/sessions/DirectoryStorageKt {
 	public static final fun directorySessionStorage (Ljava/io/File;Z)Lio/ktor/server/sessions/SessionStorage;
 	public static synthetic fun directorySessionStorage$default (Ljava/io/File;ZILjava/lang/Object;)Lio/ktor/server/sessions/SessionStorage;
@@ -85,6 +129,17 @@ public final class io/ktor/server/sessions/KotlinTimeJvmKt {
 	public static final fun setMaxAge-6Au4x4Y (Lio/ktor/server/sessions/CookieConfiguration;Lkotlin/time/Duration;)V
 }
 
+public class io/ktor/server/sessions/ReferenceCache : io/ktor/server/sessions/Cache {
+	public fun <init> (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;)V
+	public final fun getCalc ()Lkotlin/jvm/functions/Function2;
+	public fun getOrCompute (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getWrapFunction ()Lkotlin/jvm/functions/Function3;
+	public fun invalidate (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun invalidate (Ljava/lang/Object;Ljava/lang/Object;)Z
+	public fun invalidateAll ()V
+	public fun peek (Ljava/lang/Object;)Ljava/lang/Object;
+}
+
 public final class io/ktor/server/sessions/SessionIdProviderKt {
 	public static final fun generateSessionId ()Ljava/lang/String;
 }
@@ -109,13 +164,17 @@ public abstract interface class io/ktor/server/sessions/SessionSerializer {
 
 public final class io/ktor/server/sessions/SessionSerializerReflection : io/ktor/server/sessions/SessionSerializer {
 	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun <init> (Lkotlin/reflect/KType;)V
 	public fun deserialize (Ljava/lang/String;)Ljava/lang/Object;
 	public final fun getType ()Lkotlin/reflect/KClass;
+	public final fun getTypeInfo$ktor_server_sessions ()Lkotlin/reflect/KType;
 	public fun serialize (Ljava/lang/Object;)Ljava/lang/String;
 }
 
 public final class io/ktor/server/sessions/SessionSerializerReflectionKt {
+	public static final synthetic fun autoSerializerOf ()Lio/ktor/server/sessions/SessionSerializerReflection;
 	public static final fun autoSerializerOf (Lkotlin/reflect/KClass;)Lio/ktor/server/sessions/SessionSerializerReflection;
+	public static final synthetic fun defaultSessionSerializer ()Lio/ktor/server/sessions/SessionSerializer;
 	public static final fun defaultSessionSerializer (Lkotlin/reflect/KType;)Lio/ktor/server/sessions/SessionSerializer;
 }
 
@@ -143,6 +202,7 @@ public final class io/ktor/server/sessions/SessionTrackerById : io/ktor/server/s
 	public fun <init> (Lkotlin/reflect/KClass;Lio/ktor/server/sessions/SessionSerializer;Lio/ktor/server/sessions/SessionStorage;Lkotlin/jvm/functions/Function0;)V
 	public fun clear (Lio/ktor/server/application/ApplicationCall;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun getSerializer ()Lio/ktor/server/sessions/SessionSerializer;
+	public final fun getSessionIdKey$ktor_server_sessions ()Lio/ktor/util/AttributeKey;
 	public final fun getSessionIdProvider ()Lkotlin/jvm/functions/Function0;
 	public final fun getStorage ()Lio/ktor/server/sessions/SessionStorage;
 	public final fun getType ()Lkotlin/reflect/KClass;
@@ -154,6 +214,7 @@ public final class io/ktor/server/sessions/SessionTrackerById : io/ktor/server/s
 
 public final class io/ktor/server/sessions/SessionTrackerByIdKt {
 	public static final fun getSessionId (Lio/ktor/server/application/ApplicationCall;)Ljava/lang/String;
+	public static final synthetic fun sessionId (Lio/ktor/server/application/ApplicationCall;)Ljava/lang/String;
 	public static final fun sessionId (Lio/ktor/server/application/ApplicationCall;Ljava/lang/String;)Ljava/lang/String;
 }
 
@@ -258,12 +319,20 @@ public final class io/ktor/server/sessions/Sessions$Plugin : io/ktor/server/appl
 }
 
 public final class io/ktor/server/sessions/SessionsBuilderKt {
+	public static final synthetic fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;)V
 	public static final fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lio/ktor/server/sessions/CookieIdSessionBuilder;Lkotlin/reflect/KClass;Lio/ktor/server/sessions/SessionStorage;)V
+	public static final synthetic fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lio/ktor/server/sessions/SessionStorage;)V
+	public static final synthetic fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lio/ktor/server/sessions/SessionStorage;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;)V
 	public static final fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;Lio/ktor/server/sessions/CookieSessionBuilder;)V
 	public static final fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;Lio/ktor/server/sessions/SessionStorage;)V
 	public static final fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;Lio/ktor/server/sessions/SessionStorage;Lkotlin/jvm/functions/Function1;)V
 	public static final fun cookie (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;)V
+	public static final synthetic fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lio/ktor/server/sessions/SessionStorage;)V
+	public static final synthetic fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lio/ktor/server/sessions/SessionStorage;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;)V
 	public static final fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;Lio/ktor/server/sessions/SessionStorage;)V
 	public static final fun header (Lio/ktor/server/sessions/Sessions$Configuration;Ljava/lang/String;Lkotlin/reflect/KClass;Lio/ktor/server/sessions/SessionStorage;Lio/ktor/server/sessions/HeaderSessionBuilder;)V
@@ -272,10 +341,23 @@ public final class io/ktor/server/sessions/SessionsBuilderKt {
 }
 
 public final class io/ktor/server/sessions/SessionsKt {
+	public static final synthetic fun clear (Lio/ktor/server/sessions/CurrentSession;)V
+	public static final synthetic fun get (Lio/ktor/server/sessions/CurrentSession;)Ljava/lang/Object;
+	public static final synthetic fun getOrSet (Lio/ktor/server/sessions/CurrentSession;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static synthetic fun getOrSet$default (Lio/ktor/server/sessions/CurrentSession;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
 	public static final fun getSessions (Lio/ktor/server/application/ApplicationCall;)Lio/ktor/server/sessions/CurrentSession;
+	public static final synthetic fun set (Lio/ktor/server/sessions/CurrentSession;Ljava/lang/Object;)V
+}
+
+public final class io/ktor/server/sessions/SoftReferenceCache : io/ktor/server/sessions/ReferenceCache {
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
 }
 
 public final class io/ktor/server/sessions/TooLateSessionSetException : java/lang/IllegalStateException {
 	public fun <init> ()V
+}
+
+public final class io/ktor/server/sessions/WeakReferenceCache : io/ktor/server/sessions/ReferenceCache {
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
 }
 

@@ -9,3 +9,6 @@ public final class io/ktor/events/Events {
 	public final fun unsubscribe (Lio/ktor/events/EventDefinition;Lkotlin/jvm/functions/Function1;)V
 }
 
+public final class io/ktor/events/EventsKt {
+}
+

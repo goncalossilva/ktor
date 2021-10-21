@@ -23,9 +23,14 @@ public final class io/ktor/server/velocity/VelocityContent {
 	public final fun getTemplate ()Ljava/lang/String;
 }
 
+public final class io/ktor/server/velocity/VelocityKt {
+	public static final fun velocityOutgoingContent (Lorg/apache/velocity/Template;Lorg/apache/velocity/context/Context;Ljava/lang/String;Lio/ktor/http/ContentType;)Lio/ktor/http/content/OutgoingContent;
+}
+
 public final class io/ktor/server/velocity/VelocityTools {
 	public static final field Plugin Lio/ktor/server/velocity/VelocityTools$Plugin;
 	public synthetic fun <init> (Lorg/apache/velocity/tools/ToolManager;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun process$ktor_server_velocity (Lio/ktor/server/velocity/VelocityContent;)Lio/ktor/http/content/OutgoingContent;
 }
 
 public final class io/ktor/server/velocity/VelocityTools$Plugin : io/ktor/server/application/ApplicationPlugin {

@@ -6,6 +6,7 @@ public final class io/ktor/server/plugins/DefaultHeaders {
 public final class io/ktor/server/plugins/DefaultHeaders$Configuration {
 	public fun <init> ()V
 	public final fun getClock ()Lkotlin/jvm/functions/Function0;
+	public final fun getHeaders$ktor_server_default_headers ()Lio/ktor/http/HeadersBuilder;
 	public final fun header (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun setClock (Lkotlin/jvm/functions/Function0;)V
 }

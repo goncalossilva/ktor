@@ -1,6 +1,8 @@
 public final class io/ktor/server/plugins/CallLogging : io/ktor/server/logging/MDCProvider {
 	public static final field Plugin Lio/ktor/server/plugins/CallLogging$Plugin;
 	public synthetic fun <init> (Lorg/slf4j/Logger;Lio/ktor/events/Events;Lorg/slf4j/event/Level;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun cleanupMdc$ktor_server_call_logging ()V
+	public final fun setupMdc$ktor_server_call_logging (Lio/ktor/server/application/ApplicationCall;)Ljava/util/Map;
 	public fun withMDCBlock (Lio/ktor/server/application/ApplicationCall;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
@@ -9,11 +11,24 @@ public final class io/ktor/server/plugins/CallLogging$Configuration {
 	public final fun disableDefaultColors ()V
 	public final fun filter (Lkotlin/jvm/functions/Function1;)V
 	public final fun format (Lkotlin/jvm/functions/Function1;)V
+	public final fun getFilters$ktor_server_call_logging ()Ljava/util/List;
+	public final fun getFormatCall$ktor_server_call_logging ()Lkotlin/jvm/functions/Function1;
 	public final fun getLevel ()Lorg/slf4j/event/Level;
 	public final fun getLogger ()Lorg/slf4j/Logger;
+	public final fun getMdcEntries$ktor_server_call_logging ()Ljava/util/List;
+	public final fun isColorsEnabled$ktor_server_call_logging ()Z
 	public final fun mdc (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun setColorsEnabled$ktor_server_call_logging (Z)V
+	public final fun setFormatCall$ktor_server_call_logging (Lkotlin/jvm/functions/Function1;)V
 	public final fun setLevel (Lorg/slf4j/event/Level;)V
 	public final fun setLogger (Lorg/slf4j/Logger;)V
+	public final fun toLogStringWithColors$ktor_server_call_logging (Lio/ktor/server/request/ApplicationRequest;)Ljava/lang/String;
+}
+
+public final class io/ktor/server/plugins/CallLogging$MDCEntry {
+	public fun <init> (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun getName ()Ljava/lang/String;
+	public final fun getProvider ()Lkotlin/jvm/functions/Function1;
 }
 
 public final class io/ktor/server/plugins/CallLogging$Plugin : io/ktor/server/application/ApplicationPlugin {

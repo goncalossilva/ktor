@@ -1,3 +1,6 @@
+public final class io/ktor/server/plugins/ForwardHeaderSupportKt {
+}
+
 public final class io/ktor/server/plugins/ForwardedHeaderSupport : io/ktor/server/application/ApplicationPlugin {
 	public static final field INSTANCE Lio/ktor/server/plugins/ForwardedHeaderSupport;
 	public final fun getForwardedParsedKey ()Lio/ktor/util/AttributeKey;
@@ -37,6 +40,7 @@ public final class io/ktor/server/plugins/XForwardedHeaderSupport$Config {
 	public final fun getForHeaders ()Ljava/util/ArrayList;
 	public final fun getHostHeaders ()Ljava/util/ArrayList;
 	public final fun getHttpsFlagHeaders ()Ljava/util/ArrayList;
+	public final fun getPortHeaders$ktor_server_forwarded_header ()Ljava/util/ArrayList;
 	public final fun getProtoHeaders ()Ljava/util/ArrayList;
 }
 

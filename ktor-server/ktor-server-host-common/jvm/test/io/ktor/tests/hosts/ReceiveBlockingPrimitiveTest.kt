@@ -1,6 +1,6 @@
 /*
-* Copyright 2014-2021 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
-*/
+ * Copyright 2014-2021 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
+ */
 
 package io.ktor.tests.hosts
 
@@ -10,9 +10,6 @@ import io.ktor.server.request.*
 import io.ktor.util.reflect.*
 import io.ktor.utils.io.*
 import kotlinx.coroutines.*
-import java.io.*
-import java.lang.reflect.*
-import kotlin.concurrent.*
 import kotlin.test.*
 
 class ReceiveBlockingPrimitiveTest {

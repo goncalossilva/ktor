@@ -4,12 +4,22 @@ public final class io/ktor/client/plugins/ContentConverterException : java/lang/
 
 public final class io/ktor/client/plugins/ContentNegotiation {
 	public static final field Plugin Lio/ktor/client/plugins/ContentNegotiation$Plugin;
+	public fun <init> (Ljava/util/List;)V
+	public final fun getRegistrations$ktor_client_content_negotiation ()Ljava/util/List;
 }
 
 public final class io/ktor/client/plugins/ContentNegotiation$Config : io/ktor/shared/serialization/Configuration {
 	public fun <init> ()V
+	public final fun getRegistrations$ktor_client_content_negotiation ()Ljava/util/List;
 	public final fun register (Lio/ktor/http/ContentType;Lio/ktor/shared/serialization/ContentConverter;Lio/ktor/http/ContentTypeMatcher;Lkotlin/jvm/functions/Function1;)V
 	public fun register (Lio/ktor/http/ContentType;Lio/ktor/shared/serialization/ContentConverter;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/ktor/client/plugins/ContentNegotiation$Config$ConverterRegistration {
+	public fun <init> (Lio/ktor/shared/serialization/ContentConverter;Lio/ktor/http/ContentType;Lio/ktor/http/ContentTypeMatcher;)V
+	public final fun getContentTypeMatcher ()Lio/ktor/http/ContentTypeMatcher;
+	public final fun getContentTypeToSend ()Lio/ktor/http/ContentType;
+	public final fun getConverter ()Lio/ktor/shared/serialization/ContentConverter;
 }
 
 public final class io/ktor/client/plugins/ContentNegotiation$Plugin : io/ktor/client/plugins/HttpClientPlugin {
