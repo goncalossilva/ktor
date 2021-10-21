@@ -9,9 +9,12 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import io.ktor.server.routing.*
+import io.ktor.server.testing.*
+import io.ktor.server.testing.suites.*
 import kotlinx.coroutines.*
 import kotlin.text.get
 import kotlin.time.*
+import kotlin.test.*
 
 class ClassCastExceptionTest : EngineTestBase<CIOApplicationEngine, CIOApplicationEngine.Configuration>(io.ktor.server.cio.CIO) {
     init {

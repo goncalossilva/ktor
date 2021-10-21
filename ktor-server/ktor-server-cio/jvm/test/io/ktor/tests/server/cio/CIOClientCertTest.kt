@@ -5,6 +5,8 @@
 package io.ktor.tests.server.cio
 
 import io.ktor.server.cio.*
+import io.ktor.server.testing.suites.*
+import kotlin.test.*
 
 class CIOClientCertTest : ClientCertTestSuite<CIOApplicationEngine, CIOApplicationEngine.Configuration>(CIO) {
     @Test

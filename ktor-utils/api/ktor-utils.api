@@ -1185,6 +1185,17 @@ public abstract class io/ktor/util/internal/OpDescriptor {
 	public abstract fun perform (Ljava/lang/Object;)Ljava/lang/Object;
 }
 
+public final class io/ktor/util/logging/KtorSimpleLoggerJvmKt {
+	public static final fun KtorSimpleLogger (Ljava/lang/String;)Lorg/slf4j/Logger;
+}
+
+public final class io/ktor/util/logging/LoggerJvmKt {
+}
+
+public final class io/ktor/util/logging/LoggerKt {
+	public static final fun error (Lorg/slf4j/Logger;Ljava/lang/Throwable;)V
+}
+
 public final class io/ktor/util/network/NetworkAddressJvmKt {
 	public static final fun NetworkAddress (Ljava/lang/String;I)Ljava/net/SocketAddress;
 	public static final fun getHostname (Ljava/net/SocketAddress;)Ljava/lang/String;

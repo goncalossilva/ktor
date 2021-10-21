@@ -6,7 +6,7 @@ package io.ktor.server.application
 
 import io.ktor.events.*
 import io.ktor.server.config.*
-import io.ktor.util.*
+import io.ktor.util.logging.*
 import kotlin.coroutines.*
 
 /**

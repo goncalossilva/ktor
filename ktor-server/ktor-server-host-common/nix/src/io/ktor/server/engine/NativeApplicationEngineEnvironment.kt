@@ -7,7 +7,7 @@ package io.ktor.server.engine
 import io.ktor.events.*
 import io.ktor.server.application.*
 import io.ktor.server.config.*
-import io.ktor.util.*
+import io.ktor.util.logging.Logger
 import kotlin.coroutines.*
 
 public class NativeApplicationEngineEnvironment(

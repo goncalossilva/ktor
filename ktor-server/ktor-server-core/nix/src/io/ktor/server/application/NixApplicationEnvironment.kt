@@ -7,7 +7,7 @@ package io.ktor.server.application
 import io.ktor.events.*
 import io.ktor.server.config.*
 import kotlin.coroutines.*
-import io.ktor.util.*
+import io.ktor.util.logging.Logger
 
 public actual interface ApplicationEnvironment {
     /**

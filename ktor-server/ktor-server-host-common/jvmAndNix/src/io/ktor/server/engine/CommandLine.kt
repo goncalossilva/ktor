@@ -6,6 +6,7 @@ package io.ktor.server.engine
 
 import io.ktor.server.config.*
 import io.ktor.util.*
+import io.ktor.util.logging.*
 
 internal object ConfigKeys {
     val applicationIdPath = "ktor.application.id"

@@ -9,7 +9,6 @@ import io.ktor.server.application.*
 import io.ktor.server.config.*
 import io.ktor.server.engine.*
 import io.ktor.util.*
-import io.ktor.util.Logger
 import org.slf4j.*
 import javax.servlet.*
 import javax.servlet.annotation.*
