@@ -263,10 +263,3 @@ public sealed class PluginBuilder<PluginConfigT : Any> private constructor(
         }
     }
 }
-
-
-private fun f() {
-    val p = createApplicationPlugin("ContNeg") {
-
-    }
-}
